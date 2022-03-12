@@ -8,3 +8,23 @@ pipeline{
        }
     }
  }
+    stage('dev') {
+      when {
+        branch "dev"
+       }
+       steps{
+          sh  "cat Jenkinsfile"
+       }
+    }
+    stage('prod') {
+     when{
+       branch "prod"
+     }
+      steps{
+       echo "run only prod"
+       }
+     }
+    }
+   }
+
+
